@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard Tabs Template</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* BRAND COLORS: 
+           Primary (Dark Blue): #1f2a52 
+           Accent (Cyan): #00bec7
+           Light Accent (Very Light Cyan): #d2f0f0
+           Neutral (Medium Grey): #abb5bf
+        */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F2F2F2; /* Retaining light background */
+        }
+        
+        .tab-button {
+            /* General styling for all buttons */
+            padding: 0.75rem 1rem;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            margin-right: 0.25rem; 
+            /* Use Primary Brand Color for inactive state border and text */
+            border: 1px solid #1f2a52;
+            color: #1f2a52; 
+            background-color: #F2F2F2;
+            z-index: 10;
+            position: relative;
+            transition: all 0.3s ease;
+            text-align: center;
+            flex-grow: 1;
+            border-bottom: none; 
+            white-space: nowrap; 
+        }
+        
+        .tab-button.active {
+            /* Active state: Solid Primary Color, white text, flush connection */
+            background-color: #1f2a52; 
+            color: white; 
+            border-color: #1f2a52;
+            border-bottom-color: #1f2a52; 
+        }
+
+        .tab-nav {
+            display: flex;
+            padding: 0 0.5rem;
+            z-index: 10;
+        }
+
+        /* Wrapper for content: Border uses Primary Color */
+        .content-container {
+            border: 1px solid #1f2a52; 
+            border-radius: 0.75rem; 
+            background-color: white; 
+            margin-top: -2px; 
+            z-index: 5;
+            position: relative;
+        }
+        /* Inner box to hold the content on a white background. */
+        .content-inner {
+            background-color: white;
+            padding: 1.5rem; 
+            border-radius: 0.5rem;
+            margin: 1rem;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8 min-h-screen flex items-start justify-center">
+
+    <div id="tabs-guide" class="w-full max-w-4xl shadow-2xl">
+        
+        <!-- Tab Navigation -->
+        <nav class="tab-nav">
+            <button id="tab-1" class="tab-button active" data-tab-target="content-1">
+                Tab 1 Title (Lorem)
+            </button>
+            <button id="tab-2" class="tab-button" data-tab-target="content-2">
+                Tab 2 Title (Ipsum)
+            </button>
+            <button id="tab-3" class="tab-button" data-tab-target="content-3">
+                Tab 3 Title (Dolor)
+            </button>
+            <button id="tab-4" class="tab-button" data-tab-target="content-4">
+                Tab 4 Title (Sit Amet)
+            </button>
+        </nav>
+
+        <!-- Tab Content Container -->
+        <div class="content-container">
+            <div class="content-inner">
+                <!-- Content 1 -->
+                <div id="content-1" class="tab-content active">
+                    <h2 class="text-2xl font-bold text-[#1f2a52] mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+                    
+                    <!-- Highlight Box 1: Light Accent BG with Primary Color Borders -->
+                    <div class="bg-[#d2f0f0] border-l-4 border-r-4 border-[#1f2a52] p-4 rounded-lg mb-6">
+                        <p class="font-semibold text-[#1f2a52]">
+                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                        </p>
+                    </div>
+
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
+                    </p>
+
+                    <ul class="space-y-3 list-disc pl-5 text-gray-700">
+                        <li>At vero eos et accusamus et iusto odio dignissimos ducimus.</li>
+                        <li>Qui blanditiis praesentium voluptatum deleniti atque corrupti.</li>
+                        <li>Quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</li>
+                        <li>Similique sunt in culpa qui officia deserunt mollitia animi.</li>
+                        <li>Id est laborum et dolorum fuga.</li>
+                    </ul>
+                </div>
+
+                <!-- Content 2 -->
+                <div id="content-2" class="tab-content hidden">
+                    <h2 class="text-2xl font-bold text-[#1f2a52] mb-4">Temporibus autem quibusdam et aut officiis debitis.</h2>
+                    
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Highlight Box 2: Light Accent BG with Primary Color Text -->
+                        <div class="p-5 bg-[#d2f0f0] rounded-lg shadow-md">
+                            <h3 class="font-extrabold text-xl text-[#1f2a52] mb-2">Box Title One: Ut enim ad minima veniam</h3>
+                            <p class="text-gray-700">Quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+                            <p class="mt-2 text-gray-700 font-medium">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
+                        </div>
+                        <!-- Highlight Box 3: Light Accent BG with Primary Color Text -->
+                        <div class="p-5 bg-[#d2f0f0] rounded-lg shadow-md">
+                            <h3 class="font-extrabold text-xl text-[#1f2a52] mb-2">Box Title Two: Vel illum qui dolorem</h3>
+                            <p class="text-gray-700">Eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.</p>
+                            <p class="mt-2 text-gray-700 font-medium">Et harum quidem rerum facilis est et expedita distinctio.</p>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-700 leading-relaxed mt-6">
+                        Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+                    </p>
+                </div>
+
+                <!-- Content 3: Includes Placeholder Icon and Image -->
+                <div id="content-3" class="tab-content hidden">
+                    <h2 class="text-2xl font-bold text-[#1f2a52] mb-4">Finding Your Placeholder Image</h2>
+                    
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        Adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem.
+                    </p>
+
+                    <div class="space-y-4">
+                        <!-- Accent Highlight Box: Light Accent BG with Accent Color Borders (Cyan) -->
+                        <div class="p-4 border-l-4 border-r-4 border-[#00bec7] bg-[#d2f0f0] rounded-lg">
+                            <p class="font-semibold text-[#1f2a52] flex items-center">
+                                <a href="#" target="_blank" class="hover:underline flex items-center text-[#1f2a52] hover:text-[#1f2a52]">
+                                    Lorem Ipsum Link Title Requires a Placeholder Icon
+                                    <!-- Placeholder Icon (Inline SVG) - Uses Primary Color for stroke -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1f2a52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 flex-shrink-0">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </p>
+                            <p class="text-sm text-gray-700 mt-1">
+                                <strong>Commonly covers:</strong> Quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Placeholder Image Block -->
+                    <div class="mt-8 p-4 bg-gray-100 rounded-lg border-2 border-dashed border-[#abb5bf] flex justify-center items-center h-48">
+                        <p class="text-[#abb5bf] text-xl font-semibold">PLACEHOLDER IMAGE (300px x 150px recommended)</p>
+                    </div>
+
+                    <p class="text-gray-700 leading-relaxed mt-6">
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+
+                <!-- Content 4 -->
+                <div id="content-4" class="tab-content hidden">
+                    <h2 class="text-2xl font-bold text-[#1f2a52] mb-4">The Payoff: Lorem Ipsum Dolor</h2>
+                    
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.
+                    </p>
+
+                    <div class="flex flex-col space-y-4">
+                        <div class="flex items-start">
+                            <!-- Checkmark uses Primary Color for stroke -->
+                            <div class="mr-3 mt-1">
+                                <svg class="w-6 h-6" fill="none" stroke="#1f2a52" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Benefit One: Ut enim ad minima</p>
+                                <p class="text-gray-600 text-sm">Quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <!-- Checkmark uses Primary Color for stroke -->
+                            <div class="mr-3 mt-1">
+                                <svg class="w-6 h-6" fill="none" stroke="#1f2a52" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Benefit Two: Reiciendis voluptatibus</p>
+                                <p class="text-gray-600 text-sm">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <!-- Checkmark uses Primary Color for stroke -->
+                            <div class="mr-3 mt-1">
+                                <svg class="w-6 h-6" fill="none" stroke="#1f2a52" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Benefit Three: Facilis est et expedita</p>
+                                <p class="text-gray-600 text-sm">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="mt-8 text-lg font-semibold text-[#1f2a52] border-t pt-4">
+                        In short: Hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Tab Switching -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            const switchTab = (targetId) => {
+                // Deactivate all buttons and hide all content
+                tabButtons.forEach(button => button.classList.remove('active'));
+                tabContents.forEach(content => content.classList.add('hidden'));
+
+                // Activate the clicked button
+                const activeButton = document.querySelector(`.tab-button[data-tab-target="${targetId}"]`);
+                if (activeButton) {
+                    activeButton.classList.add('active');
+                }
+
+                // Show the target content
+                const activeContent = document.getElementById(targetId);
+                if (activeContent) {
+                    activeContent.classList.remove('hidden');
+                }
+            };
+
+            // Set up click listeners
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-tab-target');
+                    switchTab(targetId);
+                });
+            });
+
+            // Initial state (ensure first tab is active on load)
+            switchTab('content-1');
+        });
+    </script>
+</body>
+</html>
